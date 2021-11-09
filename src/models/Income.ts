@@ -5,4 +5,5 @@ export interface Income {
   incomeStream: string;
   incomeAmount: number;
   incomeFrequency: number
+  uid: string
 }

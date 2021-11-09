@@ -5,5 +5,6 @@ export interface Expense {
   expenseDescription: string;
   expenseCategory: string;
   expenseAmount: number;
-  expenseFrequency: number
+  expenseFrequency: number;
+  uid: string
 }

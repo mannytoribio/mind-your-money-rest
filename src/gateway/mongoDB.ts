@@ -4,7 +4,8 @@ let db: Db
 
 export const getMongoClient = async () => {
   if (!db) {
-    const client = await new MongoClient('mongodb://localhost:27017').connect()
+    const client = new MongoClient('mongodb://localhost:27017')
+    
     db = client.db('MindYourMoney') 
   }
 

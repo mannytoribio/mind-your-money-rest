@@ -4,4 +4,5 @@ export interface Savings {
   _id?: ObjectId;
   savingsName: string;
   savingsAmount: number;
+  uid: string
 }
