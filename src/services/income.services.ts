@@ -17,3 +17,14 @@ export const getIncomeById = async (id: ObjectId) => {
   const col = await getIncomeCollection()
   return col.findOne({_id: id})
 }
+
+export const updateIncomeById = async ( _id: ObjectId, income: Income) => {
+  const col = await getIncomeCollection()
+  const { incomeStream, incomeAmount, incomeFrequency, updated_at } = income
+  return col.updateOne( {_id}, {$set: {incomeStream, incomeAmount, incomeFrequency, updated_at}} )
+}
+
+export const deleteIncomeById = async ( id: ObjectId ) => {
+  const col = await getIncomeCollection()
+  return col.deleteOne( {_id: id} )
+}

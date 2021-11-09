@@ -4,6 +4,7 @@ export interface Income {
   _id?: ObjectId;
   incomeStream: string;
   incomeAmount: number;
-  incomeFrequency: number
+  incomeFrequency: number;
+  updated_at: Date
   uid: string
 }

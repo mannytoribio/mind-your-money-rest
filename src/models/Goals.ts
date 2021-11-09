@@ -4,5 +4,6 @@ export interface Goal {
   _id?: ObjectId;
   goalName: string;
   goalCost: number;
-  goalDeadline: Date
+  goalDeadline: Date;
+  updated_at: Date
 }

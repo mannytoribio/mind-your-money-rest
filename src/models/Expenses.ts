@@ -6,5 +6,6 @@ export interface Expense {
   expenseCategory: string;
   expenseAmount: number;
   expenseFrequency: number;
+  updated_at: Date;
   uid: string
 }
