@@ -5,5 +5,6 @@ export interface Goal {
   goalName: string;
   goalCost: number;
   goalDeadline: Date;
-  updated_at: Date
+  updated_at: Date;
+  uid: string
 }
