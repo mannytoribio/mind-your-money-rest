@@ -1,13 +1,14 @@
-import { MongoClient, Db } from "mongodb";
+import { MongoClient } from "mongodb";
+import { MONGO_URL } from './dbConfig'
 
-let db: Db
+
+let _client: MongoClient
 
 export const getMongoClient = async () => {
-  if (!db) {
-    const client = new MongoClient('mongodb://localhost:27017')
-    
-    db = client.db('MindYourMoney') 
+  if (!_client) {
+    _client = new MongoClient(MONGO_URL)
+    _client = await _client.connect()
   }
+  return _client
 
-  return db
 }
