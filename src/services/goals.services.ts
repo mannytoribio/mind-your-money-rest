@@ -3,7 +3,8 @@ import { getMongoClient } from '../gateway/mongoDB'
 import { Goal } from '../models/Goals'
 
 const getGoalCollection = async () => {
-  const db = await getMongoClient()
+  const client = await getMongoClient()
+  const db = client.db('MindYourMoney')
   const col = db.collection<Goal>('goals')
   return col
 }
