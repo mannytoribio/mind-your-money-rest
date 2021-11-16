@@ -1,11 +1,9 @@
-import { ObjectId } from "mongodb";
-import { Router } from "express";
-import { createIncome, getIncomeById, updateIncomeById, deleteIncomeById } from "../services/income.services";
-import { Income } from "../models/Income";
+import { ObjectId } from "mongodb"
+import { Router } from "express"
+import { createIncome, getIncomeById, updateIncomeById, deleteIncomeById } from "../services/income.services"
+import { Income } from "../models/Income"
 
 const incomeRouter = Router()
-
-//all routes will need to start with '/:uid'
 
 incomeRouter.post('/', async (req, res) => {
   try {
@@ -24,6 +22,5 @@ incomeRouter.get('/:id', async (req, res) => {
   res.send(income)
 })
 
-// do I need these routes at all? 
 
 export default incomeRouter
