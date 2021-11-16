@@ -29,7 +29,7 @@ const withAuthorization = async (
 
 app.use(cors())
 app.use(express.json())
-app.use(withAuthorization)
+// app.use(withAuthorization)
 // login page should be excluded from this
 
 // app.get('/authenticated', withAuthorization, (req, res) => {
