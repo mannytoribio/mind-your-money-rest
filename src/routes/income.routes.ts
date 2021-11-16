@@ -1,6 +1,6 @@
 import { ObjectId } from "mongodb"
 import { Router } from "express"
-import { createIncome, getIncomeById, updateIncomeById, deleteIncomeById } from "../services/income.services"
+import { createIncome, getIncomeById } from "../services/income.services"
 import { Income } from "../models/Income"
 
 const incomeRouter = Router()
