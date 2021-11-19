@@ -15,3 +15,5 @@ goalRouter.get('/:id', async (req, res) => {
   const goal = await getGoalById(new ObjectId(req.params.id))
   res.send(goal)
 })
+
+export default goalRouter

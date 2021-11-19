@@ -15,3 +15,5 @@ expenseRouter.get('/:id', async (req, res) => {
   const expense = await getExpenseById(new ObjectId(req.params.id))
   res.send(expense)
 })
+
+export default expenseRouter

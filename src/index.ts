@@ -1,6 +1,8 @@
 import express from "express"
 import cors from 'cors'
 import incomeRouter from "./routes/income.routes"
+import expenseRouter from "./routes/expenses.routes"
+import goalRouter from "./routes/goals.routes"
 import admin from 'firebase-admin'
 import { firebaseConfig } from "../firebase-config"
 
@@ -37,6 +39,8 @@ app.use(express.json())
 // })
 
 app.use('/income', incomeRouter)
+app.use('/expense', expenseRouter)
+app.use('/goal', goalRouter)
 // app.use('/income', withAuthorization, incomeRouter)
 // if we don't use app.use(withAuthorization) we would use the way above
 
