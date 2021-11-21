@@ -3,6 +3,7 @@ import cors from 'cors'
 import incomeRouter from "./routes/income.routes"
 import expenseRouter from "./routes/expenses.routes"
 import goalRouter from "./routes/goals.routes"
+import savingsRouter from "./routes/savings.routes"
 import admin from 'firebase-admin'
 import { firebaseConfig } from "../firebase-config"
 
@@ -39,6 +40,7 @@ app.use(express.json())
 // })
 
 app.use('/income', incomeRouter)
+app.use('/savings', savingsRouter)
 app.use('/expense', expenseRouter)
 app.use('/goal', goalRouter)
 // app.use('/income', withAuthorization, incomeRouter)

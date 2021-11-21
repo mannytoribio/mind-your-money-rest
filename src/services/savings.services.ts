@@ -21,8 +21,8 @@ export const getSavingsById = async (id: ObjectId) => {
 
 export const updateSavingsById = async ( _id: ObjectId, savings: Savings) => {
   const col = await getSavingsCollection()
-  const { savingsName, savingsAmount, updated_at } = savings
-  return col.updateOne( {_id}, {$set: {savingsName, savingsAmount, updated_at }} )
+  const { savingsAmount } = savings
+  return col.updateOne( {_id}, {$set: { savingsAmount }} )
 }
 
 export const deleteSavingsById = async ( id: ObjectId ) => {

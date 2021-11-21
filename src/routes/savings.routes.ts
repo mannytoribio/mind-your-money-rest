@@ -15,3 +15,5 @@ savingsRouter.get('/:id', async (req, res) => {
   const savings = await getSavingsById(new ObjectId(req.params.id))
   res.send(savings)
 })
+
+export default savingsRouter
