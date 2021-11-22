@@ -17,8 +17,8 @@ incomeRouter.post('/', async (req, res) => {
   }
 })
 
-incomeRouter.get('/:uid', async (req, res) => {
-  const income = await getIncomeByUserId(req.params.uid)
+incomeRouter.get('/', async (req, res) => {
+  const income = await getIncomeByUserId(res.locals.userId)
   res.send(income)
 })
 

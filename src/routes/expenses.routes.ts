@@ -1,6 +1,6 @@
 import { ObjectId } from "mongodb"
 import { Router } from "express"
-import { createExpense, getExpenseById } from "../services/expenses.services"
+import { createExpense, getExpenseByUserId } from "../services/expenses.services"
 import { Expense } from "../models/Expenses"
 
 const expenseRouter = Router()
@@ -11,9 +11,9 @@ expenseRouter.post('/', async (req, res) => {
   res.status(201).send(ret)
 })
 
-expenseRouter.get('/:id', async (req, res) => {
-  const expense = await getExpenseById(new ObjectId(req.params.id))
-  res.send(expense)
+expenseRouter.get('/', async (req, res) => {
+  const expense = await getExpenseByUserId(res.locals.userId)
+  res.send(expense);
 })
 
 export default expenseRouter

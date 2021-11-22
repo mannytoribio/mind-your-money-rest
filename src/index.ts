@@ -5,6 +5,7 @@ import expenseRouter from "./routes/expenses.routes"
 import goalRouter from "./routes/goals.routes"
 import savingsRouter from "./routes/savings.routes"
 import admin from 'firebase-admin'
+import { withAuthorization } from "./withAuthorization"
 import { firebaseConfig } from "../firebase-config"
 
 
@@ -14,25 +15,11 @@ admin.initializeApp({
   credential: admin.credential.cert(firebaseConfig)
 })
 
-const withAuthorization = async (
-  req: express.Request,
-  res: express.Response,
-  next: express.NextFunction
-) => {
-  const jwt = req.headers.authorization!
-  try {
-    const id = await admin.auth().verifyIdToken(jwt)
-    res.locals.userId = id.uid
-  } catch {
-    res.status(403).send('Unauthorized')
-    return
-  }
-  next()
-}
+
 
 app.use(cors())
 app.use(express.json())
-// app.use(withAuthorization)
+app.use(withAuthorization)
 // login page should be excluded from this
 
 // app.get('/authenticated', withAuthorization, (req, res) => {
