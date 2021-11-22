@@ -1,6 +1,6 @@
 import { ObjectId } from "mongodb"
 import { Router } from "express"
-import { createIncome, getIncomeById } from "../services/income.services"
+import { createIncome, getIncomeByUserId } from "../services/income.services"
 import { Income } from "../models/Income"
 
 const incomeRouter = Router()
@@ -17,8 +17,8 @@ incomeRouter.post('/', async (req, res) => {
   }
 })
 
-incomeRouter.get('/:id', async (req, res) => {
-  const income = await getIncomeById(new ObjectId(req.params.id))
+incomeRouter.get('/:uid', async (req, res) => {
+  const income = await getIncomeByUserId(req.params.uid)
   res.send(income)
 })
 

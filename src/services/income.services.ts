@@ -15,9 +15,10 @@ export const createIncome = async (income: Income) => {
   return response
 }
 
-export const getIncomeById = async (id: ObjectId) => {
+export const getIncomeByUserId = async (uid: string) => {
   const col = await getIncomeCollection()
-  return col.findOne({_id: id})
+  //return col.find({incomeAmount: 2500}).toArray()
+  return col.find({"uid": uid}).toArray()
 }
 
 export const updateIncomeById = async ( _id: ObjectId, income: Income) => {

@@ -1,3 +1,6 @@
 node_modules
 dbConfig.ts
 firebase-config.ts
+firebase-config.js.map
+firebase-config.js
+dist/
