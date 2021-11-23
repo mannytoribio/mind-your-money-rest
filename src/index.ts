@@ -8,6 +8,7 @@ import admin from 'firebase-admin'
 import { withAuthorization } from "./withAuthorization"
 import { firebaseConfig } from "../firebase-config"
 
+const PORT = process.env.PORT || 5000;
 
 const app = express()
 
@@ -26,6 +27,10 @@ app.use(withAuthorization)
 //   return res.send({youre: 'cool'}).status(200)
 // })
 
+app.get('/test', (req,res) => {
+  res.send('Working')
+});
+
 app.use('/income', incomeRouter)
 app.use('/savings', savingsRouter)
 app.use('/expense', expenseRouter)
@@ -33,6 +38,6 @@ app.use('/goal', goalRouter)
 // app.use('/income', withAuthorization, incomeRouter)
 // if we don't use app.use(withAuthorization) we would use the way above
 
-app.listen(5000, () => {
-  console.log('Listening on port 5000')
+app.listen(PORT, () => {
+  console.log('Listening on port ' + PORT)
 })

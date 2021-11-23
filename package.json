@@ -1,7 +1,7 @@
 {
   "name": "mind-your-money-rest",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "license": "MIT",
   "dependencies": {
     "@types/cors": "^2.8.12",
@@ -16,8 +16,12 @@
   },
   "scripts": {
     "start": "node ./dist/index.js",
+    "gcp-build": "tsc -p .",
     "dev": "ts-node ./src/index.ts",
-    "gcp-build": "tsc -p ."
+    "build": "tsc"
+  },
+  "engines": {
+    "node": ">=8.0.0"
   },
   "devDependencies": {
     "ts-node": "^10.4.0"
