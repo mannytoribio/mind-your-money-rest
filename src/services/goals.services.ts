@@ -14,9 +14,9 @@ export const createGoal = async (goal: Goal) => {
   await col.insertOne(goal)
 }
 
-export const getGoalById = async (id: ObjectId) => {
+export const getGoalByUserId = async (uid: string) => {
   const col = await getGoalCollection()
-  return col.findOne({_id: id})
+  return col.find({uid: uid}).toArray();
 }
 
 export const updateGoalById = async (_id: ObjectId, goal: Goal) => {

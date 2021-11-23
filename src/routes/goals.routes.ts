@@ -1,6 +1,5 @@
-import { ObjectId } from "mongodb"
 import { Router } from "express"
-import { createGoal, getGoalById } from "../services/goals.services"
+import { createGoal, getGoalByUserId } from "../services/goals.services"
 import { Goal } from "../models/Goals"
 
 const goalRouter = Router()
@@ -11,8 +10,8 @@ goalRouter.post('/', async (req, res) => {
   res.status(201).send(ret)
 })
 
-goalRouter.get('/:id', async (req, res) => {
-  const goal = await getGoalById(new ObjectId(req.params.id))
+goalRouter.get('/', async (req, res) => {
+  const goal = await getGoalByUserId(res.locals.userId)
   res.send(goal)
 })
 

@@ -16,7 +16,7 @@ export const createExpense = async (expense: Expense) => {
 
 export const getExpenseByUserId = async (uid: string) => {
   const col = await getExpensesCollection()
-  return col.find({uid: uid}).toArray()
+  return col.find({uid: uid}).toArray();
 }
 
 export const updateExpenseById = async (_id: ObjectId, expense: Expense) => {

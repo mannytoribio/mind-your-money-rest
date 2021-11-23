@@ -1,6 +1,5 @@
-import { ObjectId } from "mongodb"
 import { Router } from "express"
-import { createSavings, getSavingsById } from "../services/savings.services"
+import { createSavings, getSavingsByUserId } from "../services/savings.services"
 import { Savings } from "../models/Savings"
 
 const savingsRouter = Router()
@@ -11,8 +10,8 @@ savingsRouter.post('/', async (req, res) => {
   res.status(201).send(ret)
 })
 
-savingsRouter.get('/:id', async (req, res) => {
-  const savings = await getSavingsById(new ObjectId(req.params.id))
+savingsRouter.get('/', async (req, res) => {
+  const savings = await getSavingsByUserId(res.locals.userId)
   res.send(savings)
 })
 

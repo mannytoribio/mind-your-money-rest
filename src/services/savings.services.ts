@@ -14,9 +14,9 @@ export const createSavings = async (savings: Savings) => {
   await col.insertOne(savings)
 }
 
-export const getSavingsById = async (id: ObjectId) => {
+export const getSavingsByUserId = async (uid: string) => {
   const col = await getSavingsCollection()
-  return col.findOne({_id: id})
+  return col.find({uid: uid}).toArray();
 }
 
 export const updateSavingsById = async ( _id: ObjectId, savings: Savings) => {

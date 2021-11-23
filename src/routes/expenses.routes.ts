@@ -1,9 +1,8 @@
-import { ObjectId } from "mongodb"
 import { Router } from "express"
 import { createExpense, getExpenseByUserId } from "../services/expenses.services"
 import { Expense } from "../models/Expenses"
 
-const expenseRouter = Router()
+const expenseRouter = Router();
 
 expenseRouter.post('/', async (req, res) => {
   let expense = req.body as Expense
