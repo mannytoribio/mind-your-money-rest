@@ -6,6 +6,7 @@ const expenseRouter = Router();
 
 expenseRouter.post('/', async (req, res) => {
   let expense = req.body as Expense
+  expense.expenseAmount = Number(expense.expenseAmount)
   const ret = await createExpense(expense)
   res.status(201).send(ret)
 })

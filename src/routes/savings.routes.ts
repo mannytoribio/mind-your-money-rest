@@ -6,6 +6,7 @@ const savingsRouter = Router()
 
 savingsRouter.post('/', async (req, res) => {
   let savings = req.body as Savings
+  savings.savingsAmount = Number(savings.savingsAmount)
   const ret = await createSavings(savings)
   res.status(201).send(ret)
 })

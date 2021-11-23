@@ -6,6 +6,7 @@ const goalRouter = Router()
 
 goalRouter.post('/', async (req, res) => {
   let goal = req.body as Goal
+  goal.goalCost = Number(goal.goalCost)
   const ret = await createGoal(goal)
   res.status(201).send(ret)
 })

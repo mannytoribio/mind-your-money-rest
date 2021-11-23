@@ -8,6 +8,8 @@ const incomeRouter = Router()
 incomeRouter.post('/', async (req, res) => {
   try {
     let income = req.body as Income
+     income.incomeAmount = Number(income.incomeAmount)
+     income.incomeFrequency = Number(income.incomeFrequency)
     const ret = await createIncome(income)
     res.status(201).send(ret)
   } 
