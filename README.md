@@ -14,15 +14,16 @@ TypeScript
 Node.Js
 
 ## Security
-JWT, Firebase Authentication
+JWT
 
 ## Deployed
 The backend was deployed using GCP's App Engine. 
 
 ### Setup
 1. Clone this repo
-2. run 'yarn' to install dependencies 
-3. run 'yarn start' to work on this code in localhost
+2. run `yarn` to install dependencies 
+3. run `yarn run dev` to test this code locally
+4. run `yarn gcp-build` to deploy changes once you've set up your own App Engine
 
 ### Notes:
 Full CRUD is available in the services allowing for future features not currently included in Mind Your Money.
